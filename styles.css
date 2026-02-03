@@ -1,0 +1,422 @@
+/* Duolingo-style design - brand colors */
+:root {
+  --green: #58CC02;
+  --green-light: #89E219;
+  --green-hover: #4CAF00;
+  --green-shadow: rgba(88, 204, 2, 0.4);
+  --red: #FF4B4B;
+  --red-bg: rgba(255, 75, 75, 0.12);
+  --blue: #1CB0F6;
+  --yellow: #FFC800;
+  --white: #FFFFFF;
+  --bg: #F7F7F7;
+  --bg-card: #FFFFFF;
+  --text: #3C3C3C;
+  --text-soft: #777777;
+  --border: #E5E5E5;
+  --radius: 16px;
+  --radius-btn: 16px;
+  --radius-pill: 999px;
+  --shadow-card: 0 2px 8px rgba(0, 0, 0, 0.06);
+  --shadow-btn: 0 4px 0 0 #46A302;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Noto Sans KR', 'Noto Sans JP', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+.wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  max-width: 520px;
+  margin: 0 auto;
+  padding: 20px 16px 24px;
+}
+
+/* Header - Duolingo style simple top */
+.header {
+  text-align: center;
+  margin-bottom: 28px;
+  padding-top: 8px;
+}
+
+.header h1 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text);
+  letter-spacing: -0.02em;
+}
+
+.subtitle {
+  font-size: 0.9rem;
+  color: var(--text-soft);
+  margin-top: 4px;
+  font-weight: 400;
+}
+
+/* Screens */
+.screen {
+  display: none;
+  flex: 1;
+  animation: fadeIn 0.25s ease;
+}
+
+.screen.active {
+  display: block;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Start screen - Duolingo card */
+.start-card {
+  background: var(--bg-card);
+  border-radius: var(--radius);
+  padding: 28px 24px;
+  box-shadow: var(--shadow-card);
+  border: none;
+}
+
+.start-desc {
+  text-align: center;
+  color: var(--text-soft);
+  margin-bottom: 22px;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.options {
+  margin-bottom: 24px;
+}
+
+.option-label {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.option-label select {
+  padding: 12px 16px;
+  border: 2px solid var(--border);
+  border-radius: 12px;
+  font-family: inherit;
+  font-size: 0.95rem;
+  font-weight: 600;
+  background: var(--white);
+  color: var(--text);
+  cursor: pointer;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.option-label select:hover,
+.option-label select:focus {
+  outline: none;
+  border-color: var(--green);
+  box-shadow: 0 0 0 4px rgba(88, 204, 2, 0.15);
+}
+
+/* Duolingo primary button - green, with bottom shadow */
+.btn {
+  display: block;
+  width: 100%;
+  padding: 16px 24px;
+  font-family: inherit;
+  font-size: 1.05rem;
+  font-weight: 700;
+  border: none;
+  border-radius: var(--radius-btn);
+  cursor: pointer;
+  transition: transform 0.1s, box-shadow 0.1s, background 0.15s;
+  text-align: center;
+}
+
+.btn:hover {
+  background: var(--green-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 5px 0 0 #3D9A00;
+}
+
+.btn:active {
+  transform: translateY(2px);
+  box-shadow: 0 2px 0 0 #3D9A00;
+}
+
+.btn-primary {
+  background: var(--green);
+  color: var(--white);
+  box-shadow: 0 4px 0 0 #46A302;
+}
+
+/* Quiz screen - progress bar like Duolingo */
+.quiz-header {
+  margin-bottom: 20px;
+}
+
+.progress {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--text-soft);
+  margin-bottom: 10px;
+}
+
+.progress-bar {
+  height: 8px;
+  background: var(--border);
+  border-radius: var(--radius-pill);
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: var(--green);
+  border-radius: var(--radius-pill);
+  transition: width 0.35s ease;
+  width: 0%;
+}
+
+/* Question card */
+.question-card {
+  background: var(--bg-card);
+  border-radius: var(--radius);
+  padding: 24px 20px;
+  box-shadow: var(--shadow-card);
+  border: none;
+}
+
+.question-label {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--text-soft);
+  margin-bottom: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.question-word {
+  font-size: 1.85rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 24px;
+  min-height: 2.2em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Noto Sans JP', sans-serif;
+  color: var(--text);
+}
+
+/* Choice buttons - Duolingo bubble style */
+.choices {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.choice-btn {
+  display: block;
+  width: 100%;
+  padding: 16px 20px;
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 600;
+  text-align: center;
+  background: var(--white);
+  border: 2px solid var(--border);
+  border-radius: var(--radius-btn);
+  color: var(--text);
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s, transform 0.1s, box-shadow 0.2s;
+}
+
+.choice-btn:hover:not(.disabled) {
+  border-color: var(--green);
+  background: rgba(88, 204, 2, 0.06);
+  box-shadow: 0 0 0 4px rgba(88, 204, 2, 0.12);
+}
+
+.choice-btn:active:not(.disabled) {
+  transform: scale(0.99);
+}
+
+.choice-btn.disabled {
+  cursor: default;
+}
+
+.choice-btn.correct {
+  border-color: var(--green);
+  background: rgba(88, 204, 2, 0.12);
+  color: var(--text);
+}
+
+.choice-btn.wrong {
+  border-color: var(--red);
+  background: var(--red-bg);
+  color: var(--red);
+}
+
+/* Result screen */
+.result-card {
+  background: var(--bg-card);
+  border-radius: var(--radius);
+  padding: 32px 24px;
+  box-shadow: var(--shadow-card);
+  border: none;
+  text-align: center;
+}
+
+.result-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 16px;
+  color: var(--text);
+}
+
+.result-score {
+  font-size: 2.25rem;
+  font-weight: 800;
+  color: var(--green);
+  margin-bottom: 10px;
+  letter-spacing: -0.02em;
+}
+
+.result-message {
+  color: var(--text-soft);
+  font-size: 0.95rem;
+  font-weight: 500;
+  margin-bottom: 24px;
+}
+
+/* 성적 메일 받기 폼 */
+.score-email-form {
+  margin-bottom: 24px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border);
+}
+
+.score-email-desc {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 16px;
+}
+
+.score-email-fields {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-label {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--text-soft);
+}
+
+.form-field input {
+  padding: 12px 16px;
+  border: 2px solid var(--border);
+  border-radius: 12px;
+  font-family: inherit;
+  font-size: 0.95rem;
+  background: var(--white);
+  color: var(--text);
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.form-field input::placeholder {
+  color: var(--text-soft);
+  opacity: 0.8;
+}
+
+.form-field input:hover,
+.form-field input:focus {
+  outline: none;
+  border-color: var(--green);
+  box-shadow: 0 0 0 4px rgba(88, 204, 2, 0.15);
+}
+
+.form-field input:invalid:not(:placeholder-shown) {
+  border-color: var(--red);
+}
+
+#score-submit-btn {
+  margin-top: 4px;
+}
+
+.score-email-status {
+  margin-top: 12px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  min-height: 1.4em;
+}
+
+.score-email-status.success {
+  color: var(--green);
+}
+
+.score-email-status.error {
+  color: var(--red);
+}
+
+.btn-secondary {
+  background: var(--white);
+  color: var(--green);
+  border: 2px solid var(--green);
+  box-shadow: 0 4px 0 0 #46A302;
+}
+
+.btn-secondary:hover {
+  background: rgba(88, 204, 2, 0.08);
+}
+
+#retry-btn {
+  max-width: 220px;
+  margin: 0 auto;
+}
+
+/* Footer - subtle Duolingo style */
+.footer {
+  margin-top: auto;
+  padding-top: 20px;
+  text-align: center;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--text-soft);
+}
+
+@media (max-width: 480px) {
+  .wrapper {
+    padding: 16px 12px 20px;
+  }
+  .question-word {
+    font-size: 1.6rem;
+  }
+  .choice-btn {
+    padding: 14px 16px;
+    font-size: 0.95rem;
+  }
+}

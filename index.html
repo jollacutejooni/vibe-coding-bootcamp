@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>일본어 단어 퀴즈</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Noto+Sans+KR:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="wrapper">
+    <header class="header">
+      <h1>日本語 単語クイズ</h1>
+      <p class="subtitle">일본어 단어 퀴즈</p>
+    </header>
+
+    <main class="main">
+      <!-- 시작 화면 -->
+      <section id="start-screen" class="screen active">
+        <div class="start-card">
+          <p class="start-desc">일본어 단어의 뜻을 맞춰보세요.<br>10문제가 출제됩니다.</p>
+          <div class="options">
+            <label class="option-label">
+              <span>퀴즈 방향</span>
+              <select id="quiz-mode">
+                <option value="ja-to-ko">일본어 → 한국어</option>
+                <option value="ko-to-ja">한국어 → 일본어</option>
+              </select>
+            </label>
+          </div>
+          <button id="start-btn" class="btn btn-primary">퀴즈 시작</button>
+        </div>
+      </section>
+
+      <!-- 퀴즈 화면 -->
+      <section id="quiz-screen" class="screen">
+        <div class="quiz-header">
+          <span id="progress-text" class="progress">1 / 10</span>
+          <div class="progress-bar">
+            <div id="progress-fill" class="progress-fill"></div>
+          </div>
+        </div>
+        <div class="question-card">
+          <p id="question-label" class="question-label">이 단어의 뜻은?</p>
+          <p id="question-word" class="question-word"></p>
+          <div id="choices" class="choices"></div>
+        </div>
+      </section>
+
+      <!-- 결과 화면 -->
+      <section id="result-screen" class="screen">
+        <div class="result-card">
+          <h2 id="result-title" class="result-title">퀴즈 완료!</h2>
+          <p id="result-score" class="result-score"></p>
+          <p id="result-message" class="result-message"></p>
+
+          <!-- 성적 알림 메일 받기 폼 -->
+          <div id="score-email-form" class="score-email-form">
+            <p class="score-email-desc">성적 알림 메일을 받으시려면 아래를 입력해 주세요.</p>
+            <form id="score-email-form-el" class="score-email-fields" novalidate>
+              <label class="form-field">
+                <span class="form-label">이름</span>
+                <input type="text" id="score-name" name="name" placeholder="이름" required autocomplete="name">
+              </label>
+              <label class="form-field">
+                <span class="form-label">이메일</span>
+                <input type="email" id="score-email" name="email" placeholder="example@email.com" required autocomplete="email">
+              </label>
+              <button type="submit" id="score-submit-btn" class="btn btn-primary">성적 메일 받기</button>
+            </form>
+            <p id="score-email-status" class="score-email-status" aria-live="polite"></p>
+          </div>
+
+          <button id="retry-btn" class="btn btn-primary btn-secondary">다시 풀기</button>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>일본어 단어 퀴즈 · 즐겁게 공부하세요</p>
+    </footer>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>

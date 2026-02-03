@@ -1,0 +1,12 @@
+{
+  "name": "japanese-quiz",
+  "version": "1.0.0",
+  "description": "일본어 단어 퀴즈 (Resend + Vercel)",
+  "type": "module",
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "resend": "^3.0.0"
+  }
+}
